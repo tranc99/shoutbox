@@ -13,10 +13,13 @@ app.use(express.session({secret: "hello"}));
 var register = require('./routes/register');
 var messages = require('./lib/messages');
 var login = require('./routes/login');
+var user = require('./lib/middleware/user');
 
-app.use(messages);
+
 app.use(express.static(__dirname + '/views'));
 app.set('view engine', 'ejs');
+app.use(user);
+app.use(messages);
 
 app.get('/', function(req, res) {
   res.render('home', {title: "The ShoutBox"});
