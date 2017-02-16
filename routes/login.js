@@ -10,6 +10,7 @@ exports.submit = function(req, res, next) {
     if (err) return next(err);
     if (user) {
       req.session.uid = user.id;
+      req.session.messages.push({ type: "info", string: "Welcome, " + user.name + ", you are logged in"});
       res.redirect('/');
     } else {
       res.error("Sorry! invalid credentials.");

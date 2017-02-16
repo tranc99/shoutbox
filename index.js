@@ -19,7 +19,7 @@ app.use(express.static(__dirname + '/views'));
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-  res.send('Hello world!');
+  res.render('home', {title: "The ShoutBox"});
 });
 
 // registration
@@ -29,7 +29,7 @@ app.post('/register', register.submit);
 // login
 app.get('/login', login.form);
 app.post('/login', login.submit);
-//app.get('/logout', login.logout);
+app.get('/logout', login.logout);
 
 app.listen(3000);
 console.log('Express running on port 3000');
