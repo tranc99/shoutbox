@@ -1,6 +1,4 @@
 var express = require('express');
-
-
 var app = express();
 // use middleware
 var bodyParser = require('body-parser');
@@ -11,8 +9,10 @@ app.use(methodOverride());
 app.use(express.cookieParser('your secret here'));
 app.use(express.session({secret: "hello"}));
 
+// local requires
 var register = require('./routes/register');
 var messages = require('./lib/messages');
+var login = require('./routes/login');
 
 app.use(messages);
 app.use(express.static(__dirname + '/views'));
@@ -25,6 +25,11 @@ app.get('/', function(req, res) {
 // registration
 app.get('/register', register.form);
 app.post('/register', register.submit);
+
+// login
+app.get('/login', login.form);
+//app.post('/login', login.submit);
+//app.get('/logout', login.logout);
 
 app.listen(3000);
 console.log('Express running on port 3000');
