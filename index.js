@@ -13,6 +13,7 @@ app.use(express.session({secret: "hello"}));
 var register = require('./routes/register');
 var messages = require('./lib/messages');
 var login = require('./routes/login');
+var entries = require('./routes/entries');
 var user = require('./lib/middleware/user');
 
 
@@ -21,9 +22,7 @@ app.set('view engine', 'ejs');
 app.use(user);
 app.use(messages);
 
-app.get('/', function(req, res) {
-  res.render('home', {title: "The ShoutBox"});
-});
+app.get('/', entries.list);
 
 // registration
 app.get('/register', register.form);
