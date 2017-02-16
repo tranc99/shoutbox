@@ -28,7 +28,7 @@ app.post('/register', register.submit);
 
 // login
 app.get('/login', login.form);
-//app.post('/login', login.submit);
+app.post('/login', login.submit);
 //app.get('/logout', login.logout);
 
 app.listen(3000);
