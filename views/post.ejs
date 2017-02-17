@@ -12,11 +12,11 @@
 
     <% include messages %>
 
-    <form class="grey" action="/login" method="post">
+    <form class="grey" action="/post" method="post">
       <p>
-        <input type="text" name="user[name]" placeholder="Username">
+        <input type="text" name="entry[title]" placeholder="Title">
       </p>
-      <p><input type="password" name="user[pass]" placeholder="Password"></p>
+      <p><textarea name="entry[body]" rows="8" cols="80" placeholder="Body"></textarea></p>
       <input type="submit" value="Login">
     </form>
   </body>
