@@ -23,4 +23,9 @@ exports.submit = function(req, res, next) {
     "title": data.title,
     "body": data.body
   });
+
+  entry.save(function(err) {
+    if (err) return next(err);
+    res.redirect('/');
+  });
 };
