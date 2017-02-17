@@ -25,7 +25,10 @@ app.use(messages);
 // posts
 app.get('/', entries.list);
 app.get('/post', entries.form);
-app.post('/post', entries.submit);
+app.post('/post',
+          validate.require('entry[title]'),
+          validate.lengthAbove('entry[title]', 4),
+          entries.submit);
 
 // registration
 app.get('/register', register.form);
