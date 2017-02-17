@@ -43,5 +43,8 @@ app.post('/login', login.submit);
 app.get('/logout', login.logout);
 app.get('/:page?', page(Entry.count, 5), entries.list);
 
+// API routes
+app.get('/api/user/:id', api.user);
+
 app.listen(3000);
 console.log('Express running on port 3000');
