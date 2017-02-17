@@ -27,7 +27,7 @@ app.use(messages);
 app.get('/', entries.list);
 app.get('/post', entries.form);
 app.post('/post',
-          validate.require('entry[title]'),
+          validate.required('entry[title]'),
           validate.lengthAbove('entry[title]', 4),
           entries.submit);
 
