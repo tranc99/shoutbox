@@ -15,6 +15,7 @@ var messages = require('./lib/messages');
 var login = require('./routes/login');
 var entries = require('./routes/entries');
 var user = require('./lib/middleware/user');
+var validate = require('./lib/middleware/validate');
 
 
 app.use(express.static(__dirname + '/views'));
