@@ -12,6 +12,12 @@ exports.list = function(req, res, next) {
 };
 
 exports.form = function(req, res) {
+  if (!req.session.uid) {
+    req.session.messages = req.session.messages || [];
+    req.session.messages.push({ type: 'error', string: 'Please login to make posts' });
+    console.log('Avoid the silent error');
+    res.redirect('/');
+  }
   res.render('post', { title: 'Post' });
 };
 
