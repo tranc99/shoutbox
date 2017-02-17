@@ -10,6 +10,8 @@ app.use(express.cookieParser('your secret here'));
 app.use(express.session({secret: "hello"}));
 
 // local requires
+var page = require('./lib/middleware/page');
+var Entry = require('./lib/entry');
 var register = require('./routes/register');
 var messages = require('./lib/messages');
 var login = require('./routes/login');
@@ -24,7 +26,7 @@ app.use(user);
 app.use(messages);
 
 // posts
-app.get('/', entries.list);
+app.get('/', page(Entry.count, 5), entries.list);
 app.get('/post', entries.form);
 app.post('/post',
           validate.required('entry[title]'),
