@@ -22,7 +22,10 @@ app.set('view engine', 'ejs');
 app.use(user);
 app.use(messages);
 
+// posts
 app.get('/', entries.list);
+app.get('/post', entries.form);
+app.post('/post', entries.submit);
 
 // registration
 app.get('/register', register.form);

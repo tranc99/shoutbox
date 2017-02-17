@@ -10,3 +10,7 @@ exports.list = function(req, res, next) {
     });
   });
 };
+
+exports.form = function(req, res) {
+  res.render('post', { title: 'Post' });
+};
