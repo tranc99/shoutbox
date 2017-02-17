@@ -18,10 +18,11 @@ var login = require('./routes/login');
 var entries = require('./routes/entries');
 var user = require('./lib/middleware/user');
 var validate = require('./lib/middleware/validate');
-
+var api = require('./routes/api');
 
 app.use(express.static(__dirname + '/views'));
 app.set('view engine', 'ejs');
+app.use('/api', api.auth);
 app.use(user);
 app.use(messages);
 
