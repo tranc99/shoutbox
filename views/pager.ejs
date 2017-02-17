@@ -1,14 +1,14 @@
 <div id="pager">
   <% if (page.count > 1) { %>
     <% if (page.number) { %>
-      <a id="prev" href="/?page=<% page.number %>">Previous</a>
+      <a id="prev" href="/<%= page.number %>">Previous</a>
     <% } %>
-    
+
     <% if (page.number < page.count - 1) { %>
       <% if (page.number) { %>
         &nbsp;&nbsp;
       <% } %>
-      <a id="next" href="/?page=<%= page.number + 2 %>">Next</a>
+      <a id="next" href="/<%= page.number + 2 %>">Next</a>
     <% } %>
   <% } %>
 </div>
